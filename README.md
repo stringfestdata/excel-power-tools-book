@@ -1,2 +1,3 @@
-# excel-power-tools-book
-Resources for _Excel Power Tools_ book 
+## 🛑 This book and its repo have not been finalized. Proceed with caution. 🛑
+
+# _Excel Power Tools_ book resources
