@@ -1,0 +1,9 @@
+function main(workbook: ExcelScript.Workbook, color: string) {
+	let selectedSheet = workbook.getActiveWorksheet();
+	// Set format for range D4:D8 on selectedSheet
+	selectedSheet.getRange("D4:D8").setNumberFormatLocal("m/d/yyyy");
+	// Set range B1 on selectedSheet
+	selectedSheet.getRange("B1").setFormula("=SUM(C4:C8)");
+	// Set font color to "#002060" for range A3:D3 on selectedSheet
+	selectedSheet.getRange("A3:D3").getFormat().getFont().setColor(color);
+}

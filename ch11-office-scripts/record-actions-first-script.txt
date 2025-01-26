@@ -1,0 +1,15 @@
+function main(workbook: ExcelScript.Workbook) {
+	let selectedSheet = workbook.getActiveWorksheet();
+	// Set format for range A:A on selectedSheet
+	selectedSheet.getRange("A:A").setNumberFormatLocal("m/d/yyyy");
+	// Auto fit the columns of range A:D on selectedSheet
+	selectedSheet.getRange("A:D").getFormat().autofitColumns();
+	let conditionalFormatting: ExcelScript.ConditionalFormat;
+	// Create cell value criteria for range D2:D7 on selectedSheet
+	conditionalFormatting = selectedSheet.getRange("D2:D7").addConditionalFormat(ExcelScript.ConditionalFormatType.cellValue);
+	conditionalFormatting.getCellValue().setRule({operator: ExcelScript.ConditionalCellValueOperator.greaterThan, formula1: "=3"});
+	conditionalFormatting.getCellValue().getFormat().getFill().setColor("#ffc7ce");
+	conditionalFormatting.getCellValue().getFormat().getFont().setColor("#9c0006");
+	conditionalFormatting.setStopIfTrue(false);
+	conditionalFormatting.setPriority(0);
+}
